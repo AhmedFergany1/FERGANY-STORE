@@ -28,7 +28,7 @@ export function checkoutOrder(){
             orderForm.reset();
             myCart.clear();
             localStorage.removeItem(`cart_${getLoggedUser().id}`);
-            window.location.href = "/pages/home.html";
+            window.location.reload();
         });
     });
 }
