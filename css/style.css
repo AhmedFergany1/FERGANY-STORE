@@ -1,0 +1,102 @@
+/* ====================== main components ==================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+:root {
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", serif;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    background: linear-gradient(to bottom right, rgb(195, 176, 167), rgb(203, 192, 176), rgba(205, 190, 187, 0.909));
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ================================= Login section ========================== */
+
+    .wrapper {
+      width: 90vw;
+      height: 85vh;
+      display: flex;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .left-section {
+      flex: 3;
+      background: url(../images/background-login.jpg) no-repeat center center;
+      background-size: cover;
+    }
+
+    .right-section {
+      flex: 2;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .right-section__heading {
+        color: #ce9345;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 350px;
+      padding: 2rem;
+    }
+
+    .login-btn {
+        background-color: #ce9345;
+    }
+
+    .login-btn:hover {
+        background-color: #b3864b;
+    }
+    .form-floating label {
+      color: #6c757d;
+    }
+
+    .register-link {
+        color: #ce9345;
+    }
+    @media (max-width: 768px) {
+      .left-section {
+        display: none;
+      }
+
+      .right-section {
+        flex: 1;
+        width: 100%;
+      }
+
+      .wrapper {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+      }
+    }

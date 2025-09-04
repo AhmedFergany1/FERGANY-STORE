@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrab icon cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css"
+      integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../bootstrap.css" />
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- main style -->
+    <link rel="stylesheet" href="../css/register.css" />
+    
+    <title>FerganyStore</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Left Image Section -->
+      <div class="left-section"></div>
+
+      <!-- Right Form Section -->
+      <div class="right-section">
+        <div class="register-container">
+          <i class="bi bi-person-add register-icon"></i>
+          <h3 class="mb-4 text-center right-section__heading">Register</h3>
+          <form>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="userName-field form-control"
+                name="userName"
+                id="userName"
+                placeholder="user Name"
+              />
+              <label for="userName">User Name</label>
+              <span class="input-warning text-danger d-none">
+                <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                <span class="warning-text">This field is required</span>
+              </span>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="email-field form-control"
+                name="email"
+                id="email"
+                placeholder="name@example.com"
+              />
+              <label for="email">Email address</label>
+              <span class="input-warning text-danger d-none">
+                <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                <span class="warning-text">This field is required</span>
+              </span>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                class="password-field form-control"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+              <label for="password">Password</label>
+              <span class="input-warning text-danger d-none">
+                <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                <span class="warning-text">This field is required</span>
+              </span>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                class="confirmPassword-field form-control"
+                name="confirmPassword"
+                id="confirmPassword"
+                placeholder="confirmPassword"
+              />
+              <label for="confirmPassword">Confirm Password</label>
+              <span class="input-warning text-danger d-none">
+                <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                <span class="warning-text">This field is required</span>
+              </span>
+            </div>
+            <button type="submit" class="register-btn btn w-100">Register</button>
+            <div class="mt-3 text-center">
+              <span>Do have an account?</span>
+              <a href="../index.html" class="login-link">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- <div class="registration-successful">
+        <h2>Registration Successful</h2>
+        <p>You can login now</p>
+        <button class="go-login">Ok</button>
+      </div> -->
+
+    </div>
+    <script src="../js/register.js"></script>
+  </body>
+</html>

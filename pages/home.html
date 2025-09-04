@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrab icon cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css"
+      integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../bootstrap.css" />
+    <!-- main style -->
+    <link rel="stylesheet" href="../css/home.css" />
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>FerganyStore</title>
+  </head>
+  <body>
+    <!-- =========================================== Header Section =========================================== -->
+
+    <section class="preloader">
+      <section class="preloader__circle"></section>
+      <img src="../images/header-logo.png" alt="">
+    </section>
+
+    <header class="header" id="headerPage">
+      <div class="container">
+        <a class="header__heading" href="#"><img src="../images/header-logo.png" class="header-logo"></a>
+
+        <div class="header__cart-header">
+          <div class="header__icon-cart">
+            <i class="fa-solid fa-bag-shopping cart-icon"></i>
+            <span class="cart-count" data-cartcount="0">0</span>
+          </div>
+          <div class="header__own-cart">
+            <p class="own-cart-name"></p>
+          </div>
+        </div>
+
+        <nav class="header__nav-links">
+          <ul class="header__nav-list">
+            <li class="header__nav-item"><a class="header__nav-link" href="#">Home</a></li>
+            <li class="header__nav-item"><a class="header__nav-link" href="#productPage">Products</a></li>
+            <li class="header__nav-item"><a class="header__nav-link" href="#contactPage">Contact</a></li>
+            <li class="header__nav-item"><a class="header__nav-link logout" href="#">Log out</a></li>
+          </ul>
+        </nav>
+
+        <i class="bi bi-list header__drop-down"></i>
+      </div>
+    </header>
+
+    <i class="bi bi-arrow-up-circle-fill top-arrow"></i>
+    
+    <!-- =========================================== Cart side Section =========================================== -->
+
+    <section class="cart">
+      <div class="top-cart">
+        <h3 class="cart__top-cart-title">My Cart <span></span></h3>
+        <span class="close-cart close-btn">&times;</span>
+      </div>
+
+      <div class="cart-items">
+      
+      </div>
+
+      <div class="bottom-cart">
+        <div class="cart-total">
+          <p class="cart-subtotal">Cart subTotals</p>
+          <p class="price-cart-total"></p>
+        </div>
+        <div class="cart-btns">
+          <button class="cart-btn transparent-btn ship-orders">Confirm Order</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================== Slider Section =========================================== -->
+    <aside class="container-fluid slider-container" id="sliderPage">
+      <div class="row">
+        <div
+          class="left col-1 d-flex align-items-center justify-content-center"
+        >
+          <button id="prev-slide">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+        </div>
+
+        <div class="col-10 p-0 position-relative">
+          <div
+            class="slider-image-1 d-flex flex-column flex-md-row slider-item"
+          >
+            <div
+              class="content-wrapper col-md-6 d-flex flex-column justify-content-center pt-4 text-center text-md-start"
+            >
+              <h1 class="lato-light mb-4">TECHNOLOGY HACK YOU WON'T GET</h1>
+              <a href="#productPage" class="shop-btn align-self-start m-auto m-md-0"
+                >DISCOVER MORE</a
+              >
+            </div>
+
+            <div class="col-md-6">
+              <img src="../images/banner-image.png" alt class="img-fluid" />
+            </div>
+          </div>
+
+          <div
+            class="slider-image-2 flex-column flex-md-row slider-item d-flex"
+          >
+            <div class="row">
+              <div
+                class="content-wrapper col-md-6 d-flex flex-column justify-content-center p-4 text-center text-md-start"
+              >
+                <h1 class="lato-light mb-4">DISCOVER NEW PRODUCTS</h1>
+                <a
+                  href="#productPage"
+                  class="shop-btn align-self-start m-auto m-md-0"
+                  >DISCOVER PRODUCTS</a
+                >
+              </div>
+              <div class="col-md-6">
+                <img src="../images/banner-image2.png" class="img-fluid" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="right col-1 d-flex align-items-center justify-content-center"
+        >
+          <button id="next-slide">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- =========================================== Our Services Section =========================================== -->
+
+    <section class="services" id="servicePage">
+      <div class="container">
+        <div class="main-heading">
+          <h2>Services</h2>
+          <p>
+            Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+            Mauris blandit aliquet elit, eget tincidunt.
+          </p>
+        </div>
+        <div class="service-container">
+          <div class="service-box">
+            <i class="fas fa-tshirt"></i>
+            <div class="text">
+              <h3>Trendy Collections</h3>
+              <p>
+                Discover the latest fashion trends with our curated collections
+                for men, women, and kids — updated every season.
+              </p>
+            </div>
+          </div>
+          <div class="service-box">
+            <i class="fas fa-shipping-fast"></i>
+            <div class="text">
+              <h3>Fast & Reliable Shipping</h3>
+              <p>
+                Get your favorite outfits delivered to your doorstep quickly and
+                safely with our trusted delivery partners.
+              </p>
+            </div>
+          </div>
+          <div class="service-box">
+            <i class="fas fa-lock"></i>
+            <div class="text">
+              <h3>Secure Online Payments</h3>
+              <p>
+                Shop with confidence using our secure and flexible payment
+                options, including credit card, PayPal, and more.
+              </p>
+            </div>
+          </div>
+          <div class="service-box">
+            <i class="fas fa-undo-alt"></i>
+            <div class="text">
+              <h3>Easy Returns & Exchanges</h3>
+              <p>
+                Not happy with your purchase? Enjoy hassle-free returns and
+                exchanges within 14 days.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================== Product Section =========================================== -->
+
+    <section id="productPage" class="products">
+      <div class="container">
+        <div class="main-heading">
+          <h2>Our Products</h2>
+          <p>From casual basics to statement pieces — explore all we offer.</p>
+        </div>
+
+        <div class="products-btns-container">
+          <button class="all active">All</button>
+          <button class="product-filter">Filter</button>
+          <!-- <button class="category-filter">Categories Filter</button> -->
+        </div>
+
+        <!-- <div class="select-category-container">
+          <select class="select-category">
+          </select>
+        </div> -->
+        <div class="open-price-filter">
+          <div class="price-container">
+            <div class="input-price">
+              <label for="fromInput">From</label>
+              <input
+                type="number"
+                id="fromInput"
+                class="fromInput"
+                placeholder="$"
+              />
+            </div>
+
+            <div class="input-price">
+              <label for="toInput">To</label>
+              <input
+                type="number"
+                id="toInput"
+                class="toInput"
+                placeholder="$"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="open-category-filter">
+          <div class="check-category-container"></div>
+          <button class="apply apply-filter">Apply</button>
+        </div>
+
+        <div class="products__container">
+          <div class="products__row"></div>
+        </div>
+
+        <!-- PopUp -->
+        <div class="popup">
+          <div class="popup-overlay"></div>
+
+          <div class="popup-box">
+            <button class="popup__close close-btn">&times;</button>
+
+            <div class="popup__container">
+              <h3 class="popup__title">Product Details</h3>
+              <div class="img-product-info-container">
+                <div class="img-container">
+                  <img class="popup__img" src="../images/banner-image.png" />
+                </div>
+                <div class="popup__product-info-container">
+                  <p class="popup__product-name">Product Name: <span></span></p>
+                  <p class="popup__product-desc">Description: <span></span></p>
+                  <p class="popup__product-cat">Category: <span></span></p>
+                  <p class="popup__product-price">Price: <span></span></p>
+                  <p class="popup__product-pur">Purchaed by: <span></span></p>
+                  <p class="popup__product-rat">Rating: <span></span></p>
+                  <button data-productid="0" class="popup-add-btn add-to-cart">
+                    Add To Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================== Trendy Product =========================================== -->
+
+    <section class="trendy">
+      <div class="container">
+        <div class="trendy-container">
+          <div class="trendy__products-container">
+            <div class="img-container">
+              <img src="/images/banner-image2.png" alt="trendyProduct" class="img-trendy">
+            </div>
+          </div>
+          <div class="trendy__section-header">
+            <h2 class="trendy__section-title">Trendy Products</h2>
+            <p class="trendy__section-subtitle">Check out the most popular items of the season</p>
+            <a href="#productPage" class="shop-now-btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================== Testimonials =========================================== -->
+
+    <section class="testimonials" id="testimonialPage">
+      <div class="container">
+        <div class="main-heading">
+          <h2>What Our Customers Say</h2>
+          <p>Real reviews from real shoppers</p>
+        </div>
+        <div class="testimonial-cards">
+          <div class="testimonial-card">
+            <p>
+              "Amazing quality! The fabric is soft and fits perfectly. Will buy
+              again!"
+            </p>
+            <h4>- Sarah M.</h4>
+          </div>
+          <div class="testimonial-card">
+            <p>
+              "Fast delivery and excellent customer support. Highly
+              recommended."
+            </p>
+            <h4>- John D.</h4>
+          </div>
+          <div class="testimonial-card">
+            <p>"Stylish, affordable, and sustainable. Love this brand!"</p>
+            <h4>- Emma R.</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================== Contact Us Section =========================================== -->
+
+    <section id="contactPage" class="contact-us">
+      <div class="container">
+        <div class="main-heading">
+          <h2>Contact Us</h2>
+          <p>We’re here to help — reach out with any questions or concerns.</p>
+        </div>
+        <div class="content">
+          <form>
+            <input
+              class="main-input"
+              type="text"
+              name="name"
+              placeholder="Your Name"
+            />
+            <input
+              class="main-input"
+              type="email"
+              name="mail"
+              placeholder="Your Email"
+            />
+            <textarea
+              class="main-input"
+              name="mail"
+              placeholder="Your Message"
+            ></textarea>
+            <input class="main-input" type="submit" value="Send Message" />
+          </form>
+          <div class="info">
+            <h4>Get In Touch</h4>
+            <span>+201013368556</span>
+            <!-- <span>+00 123.456.789</span> -->
+            <h4>Where We Are</h4>
+            <address>Menofyia, Egypt</address>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================== Order Popup Section =========================================== -->
+
+    <!-- Overlay & Popup Form -->
+    <div class="order-popup-overlay" id="orderPopup">
+      <div class="order-popup">
+        <span class="close-order-popup">&times;</span>
+        <h2>Order Details</h2>
+        <form id="orderForm">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" required>
+
+          <label for="address">Shipping Address</label>
+          <textarea id="address" rows="3" required></textarea>
+
+          <button type="submit" class="submit-order-btn">Submit Order</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- =========================================== Footer Section =========================================== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="box">
+           <a class="header__heading" href="#"><img src="../images/footer-logo.png" class="footer-logo"></a>
+          <ul class="social">
+            <li>
+              <a
+                href="https://www.facebook.com/ahmed.fergany.477081/"
+                target="_blank"
+                class="facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/ahmed-fergany-862441224"
+                target="_blank"
+                class="linkedin"
+              >
+                <i class="bi bi-linkedin"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/AhmedFergany1"
+                target="_blank"
+                class="github"
+              >
+                <i class="bi bi-github"></i>
+              </a>
+            </li>
+          </ul>
+          <p class="text">Stay connected. Stay stylish.</p>
+        </div>
+        <div class="box">
+          <ul class="links">
+            <li><a href="#sliderPage">Home</a></li>
+            <li class="mycart-footer">My Cart</li>
+            <li><a href="#servicePage">Our Services</a></li>
+            <li><a href="#productPage">Products</a></li>
+            <li><a href="#testimonialPage">Testimonials</a></li>
+          </ul>
+        </div>
+        <div class="box">
+          <div class="line">
+            <i class="fas fa-map-marker-alt fa-fw"></i>
+            <div class="info">Egypt, Menofyia, Ashmoon</div>
+          </div>
+          <div class="line">
+            <i class="far fa-clock fa-fw"></i>
+            <div class="info">Business Hours: From 10:00 To 18:00</div>
+          </div>
+          <div class="line">
+            <i class="fas fa-phone-volume fa-fw"></i>
+            <div class="info">
+              <span>+201013368556</span>
+            </div>
+          </div>
+          <div class="line">
+            <i class="fa-regular fa-envelope"></i>
+            <div class="info">mohamedmido012002897@gmail.com</div>
+          </div>
+        </div>
+      </div>
+      <p class="copyright">Made with ❤️ by Ahmed Fergany <br>for fashion lovers everywhere.</p>
+    </footer>
+
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>
