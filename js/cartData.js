@@ -6,10 +6,17 @@ import { getProductById } from "./api.js";
 
 export let myCart = new Map();
 
-export const cartTopCartTitle = document.querySelector(
-  ".cart .cart__top-cart-title span"
-);
+export const cartTopCartTitle = document.querySelector(".cart .cart__top-cart-title span");
 export const priceCartTotal = document.querySelector(".bottom-cart .price-cart-total");
+export const cartCount = document.querySelector(".header .header__icon-cart .cart-count");
+
+function safelyUpdateTextContent(el, text) {
+  if (el) {
+    el.textContent = text;
+  } else {
+    console.warn("DOM element not found while updating text content");
+  }
+}
 
 export async function getTotalPrice() {
   let totalPrice = 0;
@@ -17,52 +24,104 @@ export async function getTotalPrice() {
   for (const [productId, quantity] of myCart.entries()) {
     try {
       const product = await getProductById(productId);
-      totalPrice += product.price * quantity;
+      if (product && typeof product.price === "number") {
+        totalPrice += product.price * quantity;
+      } else {
+        console.warn(`Invalid product data for ID: ${productId}`, product);
+      }
     } catch (err) {
-      console.error(err);
+      console.error(`Failed to get product ${productId}:`, err);
     }
   }
 
-  return totalPrice.toFixed(2);
+  return totalPrice.toFixed(3);
 }
 
-// Add item to cart
-export const cartCount = document.querySelector(".header .header__icon-cart .cart-count");
 export function itemAddedToCard(cartbtn, product) {
-  updateCartBtnStyle(cartbtn, true);
+  try {
+    updateCartBtnStyle(cartbtn, true);
 
-  cartCount.textContent = ++cartCount.dataset.cartcount;
-  cartTopCartTitle.textContent = `(${cartCount.dataset.cartcount} item in cart)`;
+    // Safely parse and increment cart count
+    const currentCount = parseInt(cartCount?.dataset.cartcount || "0", 10);
+    const newCount = currentCount + 1;
 
-  myCart.set(product["id"], 1);
+    if (cartCount) {
+      cartCount.dataset.cartcount = newCount;
+      cartCount.textContent = newCount;
+    }
 
-  getTotalPrice()
-    .then((totalPrice) => {
-      priceCartTotal.textContent = `${totalPrice}$`;
-    })
-    .catch(console.log);
+    safelyUpdateTextContent(cartTopCartTitle, `(${newCount} item in cart)`);
 
-  putItemsInSideCart(product);
+    myCart.set(product["id"], 1);
 
-  saveCart(getLoggedUser().id, myCart);
+    getTotalPrice()
+      .then((totalPrice) => {
+        safelyUpdateTextContent(priceCartTotal, `${totalPrice}$`);
+      })
+      .catch((err) => console.error("Error updating total price:", err));
+
+    putItemsInSideCart(product);
+
+    checkIfCartIsEmpty();
+
+    const user = getLoggedUser();
+    if (user && user.id) {
+      saveCart(user.id, myCart);
+    } else {
+      console.warn("No logged-in user found. Cart not saved.");
+    }
+  } catch (error) {
+    console.error("Failed to add item to cart:", error);
+  }
 }
 
-// Remove item from cart
 export function itemdeletedFromCard(cartbtn, product) {
-  updateCartBtnStyle(cartbtn, false);
+  try {
+    updateCartBtnStyle(cartbtn, false);
 
-  cartCount.textContent = --cartCount.dataset.cartcount;
-  cartTopCartTitle.textContent = `(${cartCount.dataset.cartcount} item in cart)`;
+    const currentCount = parseInt(cartCount?.dataset.cartcount || "1", 10);
+    const newCount = Math.max(currentCount - 1, 0);
 
-  myCart.delete(product["id"]);
+    if (cartCount) {
+      cartCount.dataset.cartcount = newCount;
+      cartCount.textContent = newCount;
+    }
 
-  getTotalPrice()
-    .then((totalPrice) => {
-      priceCartTotal.textContent = `${totalPrice}$`;
-    })
-    .catch(console.log);
+    safelyUpdateTextContent(cartTopCartTitle, `(${newCount} item in cart)`);
 
-  removeItemsInSideCart(product);
+    myCart.delete(product["id"]);
 
-  saveCart(getLoggedUser().id, myCart);
+    getTotalPrice()
+      .then((totalPrice) => {
+        safelyUpdateTextContent(priceCartTotal, `${totalPrice}$`);
+      })
+      .catch((err) => console.error("Error updating total price:", err));
+
+    removeItemsInSideCart(product);
+
+    checkIfCartIsEmpty();
+
+    const user = getLoggedUser();
+    if (user && user.id) {
+      saveCart(user.id, myCart);
+    } else {
+      console.warn("No logged-in user found. Cart not saved.");
+    }
+  } catch (error) {
+    console.error("Failed to delete item from cart:", error);
+  }
+}
+
+export function checkIfCartIsEmpty() {
+  try {
+    const emptyCartTxt = document.querySelector(".emptycart");
+    if (!emptyCartTxt) {
+      console.warn("Empty cart text element not found.");
+      return;
+    }
+
+    emptyCartTxt.style.display = myCart.size === 0 ? "block" : "none";
+  } catch (error) {
+    console.error("Failed to check if cart is empty:", error);
+  }
 }

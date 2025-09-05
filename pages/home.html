@@ -40,26 +40,30 @@
       <div class="container">
         <a class="header__heading" href="#"><img src="../images/header-logo.png" class="header-logo"></a>
 
-        <div class="header__cart-header">
-          <div class="header__icon-cart">
-            <i class="fa-solid fa-bag-shopping cart-icon"></i>
-            <span class="cart-count" data-cartcount="0">0</span>
+        <div class="header__cart-and-nav">
+
+          <div class="header__cart-header">
+            <div class="header__icon-cart">
+              <i class="fa-solid fa-bag-shopping cart-icon"></i>
+              <span class="cart-count" data-cartcount="0">0</span>
+            </div>
+            <div class="header__own-cart">
+              <p class="own-cart-name"></p>
+            </div>
           </div>
-          <div class="header__own-cart">
-            <p class="own-cart-name"></p>
-          </div>
+  
+          <nav class="header__nav-links">
+            <ul class="header__nav-list">
+              <li class="header__nav-item"><a class="header__nav-link" href="#">Home</a></li>
+              <li class="header__nav-item"><a class="header__nav-link" href="#productPage">Products</a></li>
+              <li class="header__nav-item"><a class="header__nav-link" href="#contactPage">Contact</a></li>
+              <li class="header__nav-item"><a class="header__nav-link logout" href="#">Log out</a></li>
+            </ul>
+          </nav>
+
+          <i class="bi bi-list header__drop-down"></i>
         </div>
 
-        <nav class="header__nav-links">
-          <ul class="header__nav-list">
-            <li class="header__nav-item"><a class="header__nav-link" href="#">Home</a></li>
-            <li class="header__nav-item"><a class="header__nav-link" href="#productPage">Products</a></li>
-            <li class="header__nav-item"><a class="header__nav-link" href="#contactPage">Contact</a></li>
-            <li class="header__nav-item"><a class="header__nav-link logout" href="#">Log out</a></li>
-          </ul>
-        </nav>
-
-        <i class="bi bi-list header__drop-down"></i>
       </div>
     </header>
 
@@ -74,7 +78,7 @@
       </div>
 
       <div class="cart-items">
-      
+        <div class="emptycart">🛒 Your cart is empty. Let's fill it up! 😊</div>
       </div>
 
       <div class="bottom-cart">
@@ -107,7 +111,7 @@
               class="content-wrapper col-md-6 d-flex flex-column justify-content-center pt-4 text-center text-md-start"
             >
               <h1 class="lato-light mb-4">TECHNOLOGY HACK YOU WON'T GET</h1>
-              <a href="#productPage" class="shop-btn align-self-start m-auto m-md-0"
+              <a href="#productPage" class="shop-btn align-self-start m-auto m-md-0 fs-6"
                 >DISCOVER MORE</a
               >
             </div>
@@ -127,7 +131,7 @@
                 <h1 class="lato-light mb-4">DISCOVER NEW PRODUCTS</h1>
                 <a
                   href="#productPage"
-                  class="shop-btn align-self-start m-auto m-md-0"
+                  class="shop-btn align-self-start m-auto m-md-0 fs-6"
                   >DISCOVER PRODUCTS</a
                 >
               </div>
@@ -347,23 +351,23 @@
         <div class="content">
           <form>
             <input
-              class="main-input"
+              class="main-input contact-name-inp"
               type="text"
               name="name"
               placeholder="Your Name"
             />
             <input
-              class="main-input"
+              class="main-input contact-mail-inp"
               type="email"
               name="mail"
               placeholder="Your Email"
             />
             <textarea
-              class="main-input"
-              name="mail"
+              class="main-input contact-message-inp"
+              name="message"
               placeholder="Your Message"
             ></textarea>
-            <input class="main-input" type="submit" value="Send Message" />
+            <input class="main-input contact-submit-btn" type="submit" value="Send Message" />
           </form>
           <div class="info">
             <h4>Get In Touch</h4>
