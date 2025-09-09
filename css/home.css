@@ -377,7 +377,7 @@ a {
   top: 0px;
   bottom: 0;
   height: 100%;
-  width: 500px;
+  width: 600px;
   opacity: 0;
   background-color: white;
   z-index: 100;
@@ -564,14 +564,14 @@ a {
     }
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .cart .cart-items .item-cart {
     flex-direction: column;
     row-gap: 40px;
     height: auto;
   }
   .cart {
-    width: fit-content;
+    width: 100%;
   }
 }
 /* ================================================= Start Slider ==============================================*/
@@ -838,7 +838,7 @@ a {
 
     .products__row {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
       row-gap: 20px;
 
       .products__item {
