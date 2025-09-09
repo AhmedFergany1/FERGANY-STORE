@@ -62,11 +62,8 @@ export function loadCartFromLocalStorage(userId) {
             console.warn(`Product with ID ${productId} not found.`);
             return;
           }
-
-          // Inject product into cart UI as many times as quantity
-          for (let i = 0; i < quantity; i++) {
-            putItemsInSideCart(product);
-          }
+          
+          putItemsInSideCart(product);
 
           const amountSpan = document.querySelector(`.item-cart[data-productid="${productId}"] .amount-span`);
           if (amountSpan) {
